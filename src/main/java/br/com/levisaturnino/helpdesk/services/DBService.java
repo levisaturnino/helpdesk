@@ -7,11 +7,8 @@ import br.com.levisaturnino.helpdesk.domain.enums.Perfil;
 import br.com.levisaturnino.helpdesk.domain.enums.Prioridade;
 import br.com.levisaturnino.helpdesk.domain.enums.Status;
 import br.com.levisaturnino.helpdesk.repositories.ChamadoRepository;
-import br.com.levisaturnino.helpdesk.repositories.ClienteRepository;
 import br.com.levisaturnino.helpdesk.repositories.PessoaRepository;
-import br.com.levisaturnino.helpdesk.repositories.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -24,7 +21,7 @@ public class DBService {
     public void instanciaDB(){
         Tecnico tec1= new Tecnico(null,"Levi Dias",
                 "123.456.789-00","levisaturnino@gmail.com","123");
-        tec1.addPerfis(Perfil.ADMIN);
+        tec1.addPerfil(Perfil.ADMIN);
 
         Tecnico tec2 = new Tecnico(null,"Richard Stallman",
                 "550.482.150-95","stallman@gmail.com","123");

@@ -1,5 +1,6 @@
 package br.com.levisaturnino.helpdesk.domain;
 
+import br.com.levisaturnino.helpdesk.domain.dtos.ChamadoDTO;
 import br.com.levisaturnino.helpdesk.domain.enums.Prioridade;
 import br.com.levisaturnino.helpdesk.domain.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -48,6 +49,7 @@ public class Chamado  implements Serializable {
         this.tecnico = tecnico;
         this.cliente = cliente;
     }
+
 
     public Integer getId() {
         return id;

@@ -1,20 +1,19 @@
 package br.com.levisaturnino.helpdesk.domain.dtos;
+
+import br.com.levisaturnino.helpdesk.domain.Cliente;
+import br.com.levisaturnino.helpdesk.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.validator.constraints.br.CPF;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-
-import br.com.levisaturnino.helpdesk.domain.Tecnico;
-import br.com.levisaturnino.helpdesk.domain.enums.Perfil;
-import org.hibernate.validator.constraints.br.CPF;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-public class TecnicoDTO implements Serializable {
+public class ClienteDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     protected Integer id;
@@ -33,12 +32,12 @@ public class TecnicoDTO implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dataCriacao = LocalDate.now();
 
-    public TecnicoDTO() {
+    public ClienteDTO() {
         super();
         addPerfil(Perfil.CLIENTE);
     }
 
-    public TecnicoDTO(Tecnico obj) {
+    public ClienteDTO(Cliente obj) {
         super();
         this.id = obj.getId();
         this.nome = obj.getNome();
