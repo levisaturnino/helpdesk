@@ -1,6 +1,7 @@
 package br.com.levisaturnino.helpdesk.services;
 
 import br.com.levisaturnino.helpdesk.domain.Tecnico;
+import br.com.levisaturnino.helpdesk.domain.dtos.TecnicoDTO;
 import br.com.levisaturnino.helpdesk.exceptions.ObjectnotFoundException;
 import br.com.levisaturnino.helpdesk.repositories.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,10 @@ public class TecnicoService {
 
     public List<Tecnico> findByAll() {
         return tecnicoRepository.findAll();
+    }
+
+    public Tecnico save(TecnicoDTO tecnicoDTO) {
+        tecnicoDTO.setId(null);
+        return tecnicoRepository.save(new Tecnico(tecnicoDTO));
     }
 }
