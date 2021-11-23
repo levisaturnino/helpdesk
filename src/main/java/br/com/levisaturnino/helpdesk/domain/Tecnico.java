@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Tecnico extends Pessoal {
+public class Tecnico extends Pessoa {
     private static final long serialVersionUID = 1L;
 
     @OneToMany(mappedBy = "tecnico")
@@ -17,6 +17,10 @@ public class Tecnico extends Pessoal {
     public Tecnico() {
         super();
         addPerfis(Perfil.TECNICO);
+    }
+
+    public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
+        super(id, nome, cpf, email, senha);
     }
 
     public Tecnico(Integer id, String nome, String cpf, String email, String senha, List<Chamado> chamados) {

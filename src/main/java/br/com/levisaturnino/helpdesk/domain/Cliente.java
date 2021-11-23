@@ -7,7 +7,7 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
-public class Cliente extends Pessoal {
+public class Cliente extends Pessoa {
     private static final long serialVersionUID = 1L;
 
     @OneToMany(mappedBy = "cliente")
@@ -25,7 +25,13 @@ public class Cliente extends Pessoal {
 
     }
 
-    public List<Chamado> getChamados() {
+    public Cliente(Integer id, String nome, String cpf, String email, String senha) {
+        super(id, nome, cpf, email, senha);
+        addPerfis(Perfil.CLIENTE);
+
+    }
+
+        public List<Chamado> getChamados() {
         return chamados;
     }
 

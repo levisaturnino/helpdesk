@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Data
 @Entity
-public abstract class Pessoal implements Serializable {
+public abstract class Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -35,12 +35,12 @@ public abstract class Pessoal implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dataCriacao = LocalDate.now();
 
-    public Pessoal() {
+    public Pessoa() {
         super();
         addPerfis(Perfil.CLIENTE);
     }
 
-    public Pessoal(Integer id, String nome, String cpf, String email, String senha) {
+    public Pessoa(Integer id, String nome, String cpf, String email, String senha) {
         super();
         this.id = id;
         this.nome = nome;
@@ -63,7 +63,7 @@ public abstract class Pessoal implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Pessoal pessoal = (Pessoal) o;
+        Pessoa pessoal = (Pessoa) o;
 
         if (id != null ? !id.equals(pessoal.id) : pessoal.id != null) return false;
         return cpf != null ? cpf.equals(pessoal.cpf) : pessoal.cpf == null;
