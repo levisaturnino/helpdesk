@@ -17,35 +17,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class HelpdeskApplication implements CommandLineRunner {
-
-	@Autowired
-	ClienteRepository clienteRepository;
-	@Autowired
-	TecnicoRepository tecnicoRepository;
-	@Autowired
-	ChamadoRepository chamadoRepository;
-
+public class HelpdeskApplication  {
 	public static void main(String[] args) {
 		SpringApplication.run(HelpdeskApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-
-		Tecnico tecnico = new Tecnico(null,"Levi Dias",
-				"03678716458","levisaturnino@gmail.com","123");
-		tecnico.addPerfis(Perfil.ADMIN);
-
-		Cliente cli = new Cliente(null,"Saturnino",
-				"03678716459","saturnino@gmail.com","123");
-
-
-		Chamado c1 = new Chamado(null, Prioridade.MEDIA,
-				Status.ANDAMENTO,"Chamado 01","Primeiro chamado",tecnico,cli);
-
-		tecnicoRepository.saveAll(Arrays.asList(tecnico));
-		clienteRepository.saveAll(Arrays.asList(cli));
-		chamadoRepository.saveAll(Arrays.asList(c1));
-	}
 }
