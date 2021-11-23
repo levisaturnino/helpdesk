@@ -1,6 +1,7 @@
 package br.com.levisaturnino.helpdesk.domain;
 
 import br.com.levisaturnino.helpdesk.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -11,22 +12,18 @@ import java.util.List;
 public class Tecnico extends Pessoa {
     private static final long serialVersionUID = 1L;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
     public Tecnico() {
         super();
-        addPerfis(Perfil.TECNICO);
+        addPerfis(Perfil.CLIENTE);
     }
 
     public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
         super(id, nome, cpf, email, senha);
-    }
-
-    public Tecnico(Integer id, String nome, String cpf, String email, String senha, List<Chamado> chamados) {
-        super(id, nome, cpf, email, senha);
-        this.chamados = chamados;
-        addPerfis(Perfil.TECNICO);
+        addPerfis(Perfil.CLIENTE);
     }
 
     public List<Chamado> getChamados() {

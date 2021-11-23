@@ -1,6 +1,6 @@
 package br.com.levisaturnino.helpdesk.config;
 
-import br.com.levisaturnino.helpdesk.service.DBService;
+import br.com.levisaturnino.helpdesk.services.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
